@@ -8,23 +8,31 @@ import kotlinx.coroutines.flow.Flow
 interface NewsDao {
     @Query("""
         SELECT * FROM news
-        ORDER BY id DESC
+        ORDER BY updatedAt DESC
     """)
-    fun getAllNews(): Flow<List<NewsEntity>>
+    fun getAllNews():
+            Flow<List<NewsEntity>>
     @Insert(
         onConflict = OnConflictStrategy.REPLACE
     )
     suspend fun insertAll(
         news: List<NewsEntity>
     )
-    @Query("DELETE FROM news")
-    suspend fun clear()
     @Query("""
         SELECT * FROM news
         WHERE title LIKE '%' || :keyword || '%'
-        ORDER BY id DESC
     """)
     fun searchNews(
         keyword: String
     ): Flow<List<NewsEntity>>
+    @Query("""
+        SELECT * FROM news
+        WHERE articleUrl = :url
+        LIMIT 1
+    """)
+    suspend fun getNewsDetail(
+        url: String
+    ): NewsEntity?
+    @Query("DELETE FROM news")
+    suspend fun clear()
 }

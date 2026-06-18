@@ -8,5 +8,8 @@ interface NewsRepository {
     fun searchNews(
         keyword: String
     ): Flow<List<News>>
+    suspend fun getNewsDetail(
+        url: String
+    ): News?
     suspend fun refresh()
 }

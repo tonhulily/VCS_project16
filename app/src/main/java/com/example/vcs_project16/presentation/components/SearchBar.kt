@@ -1,4 +1,4 @@
-package com.example.vcs_project16.presentation.home
+package com.example.vcs_project16.presentation.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.*

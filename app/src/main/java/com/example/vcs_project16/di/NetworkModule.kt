@@ -1,6 +1,7 @@
 package com.example.vcs_project16.di
 
 import com.example.vcs_project16.data.remote.api.NewsApi
+import com.example.vcs_project16.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +42,7 @@ object NetworkModule {
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(
-                "https://jsonplaceholder.typicode.com/"
+                Constants.BASE_URL
             )
             .client(client)
             .addConverterFactory(

@@ -1,14 +1,13 @@
-package com.example.vcs_project16.presentation.home
+package com.example.vcs_project16.presentation.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun LoadingView() {
+fun EmptyView() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -16,12 +15,15 @@ fun LoadingView() {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            CircularProgressIndicator()
+            Text(
+                text = "📰",
+                style = MaterialTheme.typography.displayMedium
+            )
             Spacer(
-                Modifier.height(16.dp)
+                Modifier.height(12.dp)
             )
             Text(
-                "Loading News..."
+                text = "No news found"
             )
         }
     }
