@@ -1,7 +1,6 @@
 package com.example.vcs_project16.ui.theme
 
 import androidx.compose.ui.graphics.Color
-
 val Primary = Color(0xFF6C63FF)
 val Secondary = Color(0xFFFFB800)
 val Background = Color(0xFFF7F8FC)

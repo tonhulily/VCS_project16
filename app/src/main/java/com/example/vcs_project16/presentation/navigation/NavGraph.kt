@@ -34,7 +34,6 @@ fun NavGraph() {
                         type = NavType.StringType
                     }
                 )
-
         ) {
             DetailScreen(
                 onBack = {

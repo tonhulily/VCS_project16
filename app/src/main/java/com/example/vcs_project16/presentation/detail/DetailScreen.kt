@@ -26,7 +26,6 @@ import com.example.vcs_project16.ui.theme.DateColor
 import com.example.vcs_project16.ui.theme.SourceColor
 import com.example.vcs_project16.utils.cleanContent
 import com.example.vcs_project16.utils.toNewsDate
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(

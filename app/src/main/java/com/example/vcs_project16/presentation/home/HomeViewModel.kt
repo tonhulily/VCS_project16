@@ -9,7 +9,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val useCases: NewsUseCases,

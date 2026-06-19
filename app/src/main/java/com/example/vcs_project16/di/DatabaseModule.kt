@@ -27,7 +27,6 @@ object DatabaseModule {
             "news_db"
         ).build()
     }
-
     @Provides
     @Singleton
     fun provideNewsDao(

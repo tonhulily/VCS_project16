@@ -8,6 +8,5 @@ class RefreshNewsUseCase @Inject constructor(
 ) {
     suspend operator fun invoke() {
         repository.refresh()
-
     }
 }

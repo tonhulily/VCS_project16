@@ -10,7 +10,6 @@ import com.example.vcs_project16.domain.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.launch
-
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val repository: NewsRepository,

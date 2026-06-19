@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.vcs_project16.presentation.components.EmptyView
 import com.example.vcs_project16.presentation.components.NewsCard
 import com.example.vcs_project16.presentation.components.NewsSearchBar
 import com.example.vcs_project16.presentation.components.OfflineBanner
@@ -85,31 +86,30 @@ fun HomeScreen(
                 Spacer(
                     Modifier.height(16.dp)
                 )
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.spacedBy(24.dp),
-                    contentPadding = PaddingValues(
-                        bottom = WindowInsets
-                            .navigationBars
-                            .asPaddingValues()
-                            .calculateBottomPadding() + 24.dp
-                    )
-                ) {
-                    items(
-                        state.news
-                    ) { news ->
-                        NewsCard(
-                            news = news,
-                            onClick = {
-                                val encodedUrl =
-                                    Uri.encode(
-                                        news.articleUrl
-                                    )
-                                navController.navigate(
-                                    "${Routes.DETAIL}/$encodedUrl"
-                                )
-                            }
+                if (state.news.isEmpty()) {
+                    EmptyView()
+                } else {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.spacedBy(24.dp),
+                        contentPadding = PaddingValues(
+                            bottom = WindowInsets
+                                .navigationBars
+                                .asPaddingValues()
+                                .calculateBottomPadding() + 24.dp
                         )
+                    ) {
+                        items(state.news) { news ->
+                            NewsCard(
+                                news = news,
+                                onClick = {
+                                    val encodedUrl = Uri.encode(news.articleUrl)
+                                    navController.navigate(
+                                        "${Routes.DETAIL}/$encodedUrl"
+                                    )
+                                }
+                            )
+                        }
                     }
                 }
             }

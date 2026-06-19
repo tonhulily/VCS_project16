@@ -3,7 +3,6 @@ package com.example.vcs_project16.utils
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
-
 fun String.toNewsDate(): String {
     return try {
         val date = OffsetDateTime.parse(this)
@@ -17,7 +16,6 @@ fun String.toNewsDate(): String {
         this
     }
 }
-
 fun String.cleanContent(): String {
     return this.replace(
         Regex("\\[\\+\\d+ chars]"),
